@@ -17,16 +17,20 @@
         window.onload = function() {
             document.getElementById('contact-form').addEventListener('submit', function(event) {
                 event.preventDefault();
-                console.log(document.getElementById("from_name").value);
-                console.log(document.getElementById("user_email").value);
-                console.log(document.getElementById("message").value);
-                //emailjs.sendForm('service_23a8455', 'template_3ct1shv', this)
-                //    .then(function() {
-                //        console.log('SUCCESS!');
-                //    }, function(error) {
-                //        console.log('FAILED...', error);
-                //    });
-                //window.location.href = "index.html";
+                var name = document.getElementById("from_name").value;
+                var email = document.getElementById("user_email").value;
+                var message = document.getElementById("message").value;
+                emailjs.send('service_23a8455', 'template_3ct1shv', {
+                  from_name: name,
+                  user_email: email,
+                  message: message
+                })
+                    .then(function() {
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+                //window.location.href = "submitted.html";
             });
         }
     </script>
@@ -36,7 +40,7 @@
   <div class="content">
     <div class="menu_bar">
       <div class="menu_button menu_home">
-        <a href="temp.html">Home</a>
+        <a href="index.html">Home</a>
       </div>
       <div class="line"></div>
       <div class="menu_button menu_map">
