@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="temp.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Koulen&family=Montserrat:wght@100;600;900&display=swap" rel="stylesheet">
+  <title>Contact Form</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('9SkjNMAAhgJ3uNq8Q');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                // these IDs from the previous steps
+                emailjs.sendForm('service_23a8455', 'template_3ct1shv', this)
+                    .then(function() {
+                        console.log('SUCCESS!');
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+</head>
+<body>
+
+  <div class="content">
+    <div class="menu_bar">
+      <div class="menu_button menu_home">
+        <a href="index.html">Home</a>
+      </div>
+      <div class="line"></div>
+      <div class="menu_button menu_map">
+        <a href="#">Map</a>
+      </div>
+      <div class="line"></div>
+      <div class="menu_button menu_photos">
+        <a href="#">Photos</a>
+      </div>
+      <div class="line"></div>
+      <div class="menu_button menu_contact">
+        <a href="#">Contact</a>
+      </div>
+    </div>
+
+    <div class="page">
+      <div class="contact_title_container">
+        <h2>Contact the Author</h2>
+      </div>
+      <div class="body_container">
+        <div class="body">
+          <div class="form_container">
+            <form action="/index.html" class="contact_form">
+
+              <div class="form_row">
+                <div class="form_col_1">
+                  <label>Your Name:</label>
+                </div>
+                <div class="form_col_2">
+                  <input type="text" name="from_name">
+                </div>
+              </div>
+
+              <div class="form_row">
+                <div class="form_col_1">
+                  <label>Your Email:</label>
+                  <p>(Optional)</p>
+                </div>
+                <div class="form_col_2">
+                  <input type="text" name="user_email">
+                </div>
+              </div>
+
+              <div class="form_row" id="message">
+                <div class="form_col_1">
+                  <label>Your Message:</label>
+                </div>
+                <div class="form_col_2">
+                  <textarea name="message"></textarea>
+                </div>
+              </div>
+
+              <div class="form_submit">
+                <input type="submit" value="Send">
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</body>
+</html>
