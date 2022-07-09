@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="temp.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Koulen&family=Montserrat:wght@100;600;900&display=swap" rel="stylesheet">
@@ -17,15 +17,14 @@
         window.onload = function() {
             document.getElementById('contact-form').addEventListener('submit', function(event) {
                 event.preventDefault();
-                // generate a five digit number for the contact_number variable
-                // these IDs from the previous steps
-                emailjs.sendForm('service_23a8455', 'template_3ct1shv', "#contact-form")
+                console.log(document.getElementById("message").value);
+                emailjs.sendForm('service_23a8455', 'template_3ct1shv', this)
                     .then(function() {
                         console.log('SUCCESS!');
                     }, function(error) {
                         console.log('FAILED...', error);
                     });
-                window.location.href = "index.html";
+                //window.location.href = "index.html";
             });
         }
     </script>
@@ -35,7 +34,7 @@
   <div class="content">
     <div class="menu_bar">
       <div class="menu_button menu_home">
-        <a href="index.html">Home</a>
+        <a href="temp.html">Home</a>
       </div>
       <div class="line"></div>
       <div class="menu_button menu_map">
@@ -65,7 +64,7 @@
                   <label>Your Name:</label>
                 </div>
                 <div class="form_col_2">
-                  <input type="text" name="from_name">
+                  <input type="text" name="from_name" id="from_name">
                 </div>
               </div>
 
@@ -75,7 +74,7 @@
                   <p>(Optional)</p>
                 </div>
                 <div class="form_col_2">
-                  <input type="text" name="user_email">
+                  <input type="text" name="user_email" id="user_email">
                 </div>
               </div>
 
