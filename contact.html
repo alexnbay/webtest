@@ -19,7 +19,7 @@
                 event.preventDefault();
                 // generate a five digit number for the contact_number variable
                 // these IDs from the previous steps
-                emailjs.sendForm('service_23a8455', 'template_3ct1shv', this)
+                emailjs.sendForm('service_23a8455', 'template_3ct1shv', "#contact-form")
                     .then(function() {
                         console.log('SUCCESS!');
                     }, function(error) {
